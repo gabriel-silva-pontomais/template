@@ -233,7 +233,7 @@
 		<!-- container -->
 		<div class="container">
 			<!-- row -->
-			<div class="row">
+			<div class="flex">
 				<!-- STORE -->
 				<div id="store" class="col-md-12">
 					<!-- store products -->
@@ -257,7 +257,7 @@
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
+										<i class="fa fa-star-o"></i>
 									</div>
 									<!-- <div class="product-btns">
 										<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
@@ -556,6 +556,7 @@
 			<!-- /row -->
 		</div>
 		<!-- /container -->
+		<a href="#" id="loadMore"> Carregar mais </a>
 	</div>
 	<!-- /SECTION -->
 
@@ -571,6 +572,20 @@
 	<script src="js/nouislider.min.js"></script>
 	<script src="js/jquery.zoom.min.js"></script>
 	<script src="js/main.js"></script>
+
+	<script>
+		$(document).ready(function () {
+			$(".product").slice(0, 4).show();
+			$("#loadMore").on("click", function (e) {
+				e.preventDefault();
+				$(".product:hidden").slice(0, 4).slideDown();
+				if ($(".product:hidden").length == 0) {
+					$("#loadMore").text("Sem mais produtos").addClass("noContent");
+				}
+			});
+
+		})
+	</script>
 
 </body>
 
